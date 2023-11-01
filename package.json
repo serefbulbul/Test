@@ -1,0 +1,17 @@
+{
+    "name": "com.test.core.frontend.single-sign-on",
+    "displayName": "Single-Sign-on",
+    "version": "1.0.0",
+    "description": "",
+    "unity": "2020.3",
+    "documentationUrl": "",
+    "changelogUrl": "",
+    "dependencies": {
+    },
+    "keywords": [
+        
+    ],
+    "author": {
+        "name": "Test"
+    }
+}
