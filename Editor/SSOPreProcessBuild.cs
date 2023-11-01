@@ -8,6 +8,9 @@ namespace Com.Test.Core.Frontend.SingleSignOn
     [InitializeOnLoad]
     public class SSOPreProcessBuild : IPreprocessBuildWithReport
     {
+        public static bool IsGoogleEnabled = false;
+        public static bool IsAppleEnabled = true;
+        
         private const string DefineSignInWithGoogle = "#define SIGN_IN_WITH_GOOGLE";
         private const string DefineSignInWithApple = "#define SIGN_IN_WITH_APPLE";
         private const string SsoConstantsHeader = "/Runtime/Plugins/iOS/ICSingleSignOnConstants.h";
@@ -65,7 +68,7 @@ namespace Com.Test.Core.Frontend.SingleSignOn
         private static void SetGoogleProviderDefine(string constantsHeaderFile, bool startFromUi)
         {
             var defineFound = SetProviderDefine(constantsHeaderFile, DefineSignInWithGoogle,
-                false);
+                SSOPreProcessBuild.IsGoogleEnabled);
             if (!defineFound)
             {
                 ReportError(startFromUi,
@@ -76,7 +79,7 @@ namespace Com.Test.Core.Frontend.SingleSignOn
         private static void SetAppleProviderDefine(string constantsHeaderFile, bool startFromUi)
         {
             var defineFound = SetProviderDefine(constantsHeaderFile, DefineSignInWithApple,
-                true);
+                SSOPreProcessBuild.IsAppleEnabled);
             if (!defineFound)
             {
                 ReportError(startFromUi,
